@@ -21,6 +21,11 @@ const tasks = [
 
 window.onload = () => {
   for (let i = 0; i < tasks.length; i += 1) {
-    appendChild(`<li>${tasks[i].description}</li>`, '#list');
+    appendChild(`
+    <li class="p-1 text-gray border-b-1">
+      <input type="checkbox" class="mr-0.5" />
+      ${tasks[i].description}
+    </li>`,
+     '#list');
   }
 };

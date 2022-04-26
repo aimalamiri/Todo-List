@@ -18,12 +18,36 @@
   background-color: $white;
 }
 
+.bg-light-gray {
+  background-color: $gray-1;
+}
+
+.text-gray {
+  color: $gray;
+}
+
 // Sizing
 
 .h-full {
-  height: 100%;
+  height: $s-full;
 }
 
 .p-1 {
-  padding: 1rem;
+  padding: $s-b1;
+}
+
+.mr-0\.5 {
+  margin-right: $s-b0\.5;
+}
+
+// Borders
+
+.border-b-1 {
+  border-bottom: $s-s1 solid $gray-7;
+}
+
+// Shadows
+
+.shadow {
+  box-shadow: 2px 20px 25px -5px rgb(1 1 2/0.2), 0 10px 10px -6px rgb(1 1 2/0.2);
 }

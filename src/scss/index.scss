@@ -17,11 +17,16 @@ a {
   color: inherit;
 }
 
+ul {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
 // General styling
 
 body {
   font-family: sans-serif;
-  background: $light-gray;
+  background: $gray-1;
   height: 100vh;
 }
 
