@@ -1,0 +1,44 @@
+{
+  "name": "webpack-boilerplate",
+  "version": "1.0.0",
+  "description": "Simple webpack configuration",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode development",
+    "watch": "webpack --watch",
+    "start": "webpack serve --open",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aimalamiri/Webpack-boilerplate.git"
+  },
+  "keywords": [
+    "webpack",
+    "webpack-boilarplate",
+    "webpack-configuration"
+  ],
+  "author": "Aimal Amiri",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aimalamiri/Webpack-boilerplate/issues"
+  },
+  "homepage": "https://github.com/aimalamiri/Webpack-boilerplate#readme",
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "sass": "^1.51.0",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1"
+  },
+  "dependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.26.0"
+  }
+}

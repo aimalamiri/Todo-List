@@ -1,0 +1,14 @@
+// Feel free to change the styles in this file as you wish.
+
+$color: #fff;
+$bg: #fe4a49;
+
+body {
+  font-family: sans-serif;
+  background: $bg;
+  color: $color;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
