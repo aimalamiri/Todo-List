@@ -1,14 +1,28 @@
 // Feel free to change the styles in this file as you wish.
 
-$color: #fff;
-$bg: #fe4a49;
+// Variables
+@import './variables';
+@import './utilities';
+
+// Normalize
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// General styling
 
 body {
   font-family: sans-serif;
-  background: $bg;
-  color: $color;
+  background: $light-gray;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
+
+// Custom Styling

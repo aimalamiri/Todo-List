@@ -1,0 +1,29 @@
+// Flexbox
+
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+// Colors
+
+.bg-white {
+  background-color: $white;
+}
+
+// Sizing
+
+.h-full {
+  height: 100%;
+}
+
+.p-1 {
+  padding: 1rem;
+}
