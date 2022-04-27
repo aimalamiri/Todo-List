@@ -10,4 +10,9 @@ export default class List {
     this.tasks.unshift(task);
     store(this.tasks, 'tasks'); 
   }
+
+  delete(id) {
+    this.tasks = this.tasks.filter((task) => task.id !== id);
+    store(this.tasks, 'tasks');
+  }
 }
