@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Todo List</title>
-</head>
-<body>
-  <div class="flex justify-center items-center h-full">
-    <div class="tasks shadow bg-white">
-      <ul id="list"></ul>
-    </div> 
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+  </head>
+  <body>
+    <div class="flex justify-center items-center h-full">
+      <form id="todo-form" class="tasks shadow bg-white">
+        <div class="p-1 text-gray border-b-1 flex justify-between items-center">
+          <h3>Today's Todo</h3>
+          <button class="flex items-center bg-white border-0"><span class="icon icon-reload"></button>
+        </div>
+        <div class="p-1 text-gray border-b-1 flex justify-between items-center">
+          <input type="text" class="task-input" placeholder="Add to your list..." />
+          <button class="flex items-center bg-white border-0"><span class="icon icon-enter"></button>
+        </div>
+        <ul id="list"></ul>
+        <div class="flex justify-center">
+          <button type="submit" class="p-1 text-gray bg-white border-0">Clear all completed</button>
+        </div>
+      </form>
+    </div>
+  </body>
 </html>

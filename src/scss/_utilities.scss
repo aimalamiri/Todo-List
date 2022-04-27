@@ -36,15 +36,23 @@
   height: $s-full;
 }
 
+.w-full {
+  width: $s-full;
+}
+
 .p-1 {
   padding: $s-b1;
 }
 
-.mr-0\.5 {
-  margin-right: $s-b0\.5;
+.mr-05 {
+  margin-right: $s-b05;
 }
 
 // Borders
+
+.border-0 {
+  border: none;
+}
 
 .border-b-1 {
   border-bottom: $s-s1 solid $gray-7;
