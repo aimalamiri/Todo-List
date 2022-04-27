@@ -1,23 +1,7 @@
 import './scss/index.scss';
 import appendChild from './js/utilities.js';
 
-const tasks = [
-  {
-    description: 'Build todo list',
-    completed: true,
-    index: 0,
-  },
-  {
-    description: 'Ask for the code review',
-    completed: true,
-    index: 1,
-  },
-  {
-    description: 'Implement changes',
-    completed: false,
-    index: 2,
-  },
-];
+const tasks = [];
 
 window.onload = () => {
   for (let i = 0; i < tasks.length; i += 1) {
