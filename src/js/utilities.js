@@ -3,4 +3,19 @@ const appendChild = (html, place) => {
   document.querySelector(place).appendChild(element);
 };
 
-export default appendChild;
+const store = (data, name) => {
+  localStorage.setItem(name, JSON.stringify(data));
+};
+
+const getFromStorage = (name) => {
+  const storage = JSON.parse(localStorage.getItem(name));
+  let elements = [];
+  if (storage) {
+    for (let i = 0; i < storage.length; i += 1) {
+      elements.push(storage[i]);
+    }
+  }
+  return elements;
+};
+
+export { appendChild, store, getFromStorage };

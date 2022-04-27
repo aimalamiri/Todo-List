@@ -1,9 +1,29 @@
 import './scss/index.scss';
-import appendChild from './js/utilities.js';
+import Task from './js/Task.js';
+import List from './js/List.js';
+import { appendChild } from './js/utilities.js';
 
-const tasks = [];
+const listElement = document.querySelector('#list');
+const addTaskForm = document.querySelector('#add-task');
+const list = new List();
+
+const tasks = list.tasks;
+
+addTaskForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const taskInput = document.querySelector('#task-input');
+  const task = new Task(taskInput.value, tasks.length, false);
+  list.add(task);
+  listElement.innerHTML = '';
+  insertTasksIntoDom();
+  addTaskForm.reset(); 
+});
 
 window.onload = () => {
+  insertTasksIntoDom();
+};
+
+const insertTasksIntoDom = () => {
   for (let i = 0; i < tasks.length; i += 1) {
     appendChild(
       `
@@ -17,7 +37,7 @@ window.onload = () => {
       </div>
       <a href="#" class="flex items-center"><span class="icon icon-dots" /></a>
     </li>`,
-      '#list',
+      '#list'
     );
   }
 };
