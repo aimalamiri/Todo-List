@@ -28,7 +28,7 @@ window.onload = () => {
         <label class="control control-checkbox" for="task-${i}">
           ${tasks[i].description}
           <input type="checkbox" id="task-${i}" ${tasks[i].completed ? 'checked' : ''} />
-          <div class="control_indicator"></div>
+          <div class="control-indicator"></div>
         </label>
       </div>
       <a href="#" class="flex items-center"><span class="icon icon-dots" /></a>
