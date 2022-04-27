@@ -2,6 +2,7 @@
 
 // Variables
 @import './variables';
+@import './checkbox';
 @import './utilities';
 
 // Normalize
@@ -31,3 +32,39 @@ body {
 }
 
 // Custom Styling
+
+.tasks {
+  width: 35vw;
+}
+
+.task-input {
+  font-size: 16px;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: 0;
+}
+
+.icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+}
+
+.icon:hover,
+.icon:focus {
+  filter: brightness(10%);
+}
+
+.icon-dots {
+  background-image: url('../icons/dots.svg');
+}
+
+.icon-reload {
+  background-image: url('../icons/reload.svg');
+}
+
+.icon-enter {
+  background-image: url('../icons/enter.svg');
+}
