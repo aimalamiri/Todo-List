@@ -9,7 +9,7 @@ const store = (data, name) => {
 
 const getFromStorage = (name) => {
   const storage = JSON.parse(localStorage.getItem(name));
-  let elements = [];
+  const elements = [];
   if (storage) {
     for (let i = 0; i < storage.length; i += 1) {
       elements.push(storage[i]);
@@ -27,9 +27,9 @@ const insertTasksIntoDom = (tasks) => {
         <label class="control control-checkbox" for="task-${i}">
           <div class="w-full">
             <del>
-            <input type="text" data-input-id="${tasks[i].id}" class="task-text ${tasks[i].complete ? 'del' : ''}" value="${
-        tasks[i].description
-      }" disabled />
+            <input type="text" data-input-id="${tasks[i].id}" class="task-text ${
+  tasks[i].complete ? 'del' : ''
+}" value="${tasks[i].description}" disabled />
       </del>
           </div>
           <input type="checkbox" data-check-id="${tasks[i].id}" ${tasks[i].complete ? 'checked' : ''} />
@@ -37,10 +37,10 @@ const insertTasksIntoDom = (tasks) => {
         </label>
       </div>
       <a href="#" data-btn-id="${
-        tasks[i].id
-      }" class="flex items-center" data-status="edit"><span class="icon icon-dots" /></a>
+  tasks[i].id
+}" class="flex items-center" data-status="edit"><span class="icon icon-dots" /></a>
     </li>`,
-      '#list'
+      '#list',
     );
   }
 };
@@ -51,12 +51,16 @@ const getTaskFromDom = (id) => {
   const text = document.querySelector(`[data-input-id="${id}"]`);
   const btn = document.querySelector(`[data-btn-id="${id}"]`);
   const icon = btn.firstChild;
-  return { task, checkbox, text, btn, icon };
+  return {
+    task, checkbox, text, btn, icon,
+  };
 };
 
-let taskBlur = (id) => {
+const taskBlur = (id) => {
   if (id) {
-    const { task, text, btn, icon } = getTaskFromDom(id);
+    const {
+      task, text, btn, icon,
+    } = getTaskFromDom(id);
     icon.classList.add('icon-dots');
     icon.classList.remove('icon-delete');
     task.classList.remove('bg-light-yellow');
@@ -67,9 +71,11 @@ let taskBlur = (id) => {
   }
 };
 
-let taskFocus = (id) => {
+const taskFocus = (id) => {
   if (id) {
-    const { task, text, btn, icon } = getTaskFromDom(id);
+    const {
+      task, text, btn, icon,
+    } = getTaskFromDom(id);
     icon.classList.remove('icon-dots');
     icon.classList.add('icon-delete');
     task.classList.add('bg-light-yellow');
@@ -78,6 +84,9 @@ let taskFocus = (id) => {
     task.focus();
     return task;
   }
+  return false;
 };
 
-export { appendChild, store, getFromStorage, insertTasksIntoDom, getTaskFromDom, taskBlur, taskFocus };
+export {
+  appendChild, store, getFromStorage, insertTasksIntoDom, getTaskFromDom, taskBlur, taskFocus,
+};

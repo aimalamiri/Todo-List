@@ -29,16 +29,17 @@ export default class List {
   }
 
   #sort() {
-    let sorted = [];
-    let count = 0;
+    const sorted = [];
 
     for (let i = 0; i < this.tasks.length; i += 1) {
       this.tasks[i].index = i;
     }
 
+    let count = 0;
     while (count < this.tasks.length) {
-      sorted.push(this.tasks.filter((t) => t.index === count)[0]);
-      count++;
+      const item = count;
+      sorted.push(this.tasks.filter((t) => t.index === item)[0]);
+      count += 1;
     }
 
     this.tasks = sorted;

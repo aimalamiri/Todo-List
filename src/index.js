@@ -1,13 +1,16 @@
 import './scss/index.scss';
 import Task from './js/Task.js';
 import List from './js/List.js';
-import { insertTasksIntoDom, getTaskFromDom, taskBlur, taskFocus } from './js/utilities.js';
+import {
+  insertTasksIntoDom, taskBlur, taskFocus,
+} from './js/utilities.js';
 
 const listElement = document.querySelector('#list');
 const addTaskForm = document.querySelector('#add-task');
+const btnDeleteDoneTasks = document.querySelector('#btn-delete-done-tasks');
 
 const list = new List();
-let tasks = list.tasks;
+let { tasks } = list;
 
 addTaskForm.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -23,11 +26,13 @@ window.onload = () => {
   insertTasksIntoDom(tasks);
 };
 
-/**
- * 1. When the user clicks on the remove icon, remove the task and update the DOM
- * 2. When the user click in outside remove restore the icon and the task color
- * 3. User clicks on task change the background and the icon and remove the disable property from it's task input
- */
+const updateList = () => {
+  tasks = list.tasks;
+  listElement.innerHTML = '';
+  insertTasksIntoDom(tasks);
+};
+
+const taskById = (id) => tasks.filter((t) => t.id === id)[0];
 
 let focused;
 document.addEventListener('click', (event) => {
@@ -38,7 +43,7 @@ document.addEventListener('click', (event) => {
     } else {
       checkbox.checked = true;
     }
-    let task = taskById(checkbox.getAttribute('data-check-id'));
+    const task = taskById(checkbox.getAttribute('data-check-id'));
     task.complete = checkbox.checked;
     list.update(task);
     updateList();
@@ -49,9 +54,9 @@ document.addEventListener('click', (event) => {
     focused = '';
   }
 
-  let taskButton = event.target.parentElement;
-  let taskId = taskButton.getAttribute('data-btn-id');
-  let taskButtonStatus = taskButton.getAttribute('data-status');
+  const taskButton = event.target.parentElement;
+  const taskId = taskButton.getAttribute('data-btn-id');
+  const taskButtonStatus = taskButton.getAttribute('data-status');
 
   if (taskButtonStatus === 'delete' && event.target === taskButton.firstChild) {
     list.delete(taskId);
@@ -68,16 +73,6 @@ document.addEventListener('click', (event) => {
   }
 });
 
-const updateList = () => {
-  tasks = list.tasks;
-  listElement.innerHTML = '';
-  insertTasksIntoDom(tasks);
-};
-
-const taskById = (id) => {
-  return tasks.filter((t) => t.id === id)[0];
-};
-
 document.addEventListener('input', (e) => {
   const input = e.target;
   const id = input.getAttribute('data-input-id');
@@ -86,4 +81,13 @@ document.addEventListener('input', (e) => {
     task.description = input.value;
     list.update(task);
   }
+});
+
+btnDeleteDoneTasks.addEventListener('click', () => {
+  for (let i = 0; i < tasks.length; i += 1) {
+    if (tasks[i].complete) {
+      list.delete(tasks[i].id);
+    }
+  }
+  updateList();
 });
