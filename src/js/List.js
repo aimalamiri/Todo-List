@@ -1,4 +1,4 @@
-import {store, getFromStorage} from './utilities.js';
+import { store, getFromStorage } from './utilities.js';
 
 export default class List {
   constructor() {
@@ -7,12 +7,13 @@ export default class List {
   }
 
   add(task) {
-    this.tasks.unshift(task);
-    store(this.tasks, 'tasks'); 
+    this.tasks.push(task);
+    store(this.tasks, 'tasks');
   }
 
   delete(id) {
     this.tasks = this.tasks.filter((task) => task.id !== id);
+    this.#sort();
     store(this.tasks, 'tasks');
   }
 
@@ -22,10 +23,24 @@ export default class List {
         this.tasks[i].index = task.index;
         this.tasks[i].title = task.title;
         this.tasks[i].complete = task.complete;
-        console.log(this.tasks)
         store(this.tasks, 'tasks');
-        // break;
       }
     }
+  }
+
+  #sort() {
+    let sorted = [];
+    let count = 0;
+
+    for (let i = 0; i < this.tasks.length; i += 1) {
+      this.tasks[i].index = i;
+    }
+
+    while (count < this.tasks.length) {
+      sorted.push(this.tasks.filter((t) => t.index === count)[0]);
+      count++;
+    }
+
+    this.tasks = sorted;
   }
 }
