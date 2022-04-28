@@ -26,11 +26,13 @@ const insertTasksIntoDom = (tasks) => {
       <div class="w-full">
         <label class="control control-checkbox" for="task-${i}">
           <div class="w-full">
-            <input type="text" data-input-id="${tasks[i].id}" class="task-text" value="${
+            <del>
+            <input type="text" data-input-id="${tasks[i].id}" class="task-text ${tasks[i].complete ? 'del' : ''}" value="${
         tasks[i].description
       }" disabled />
+      </del>
           </div>
-          <input type="checkbox" data-check-id="${tasks[i].id}" ${tasks[i].completed ? 'checked' : ''} />
+          <input type="checkbox" data-check-id="${tasks[i].id}" ${tasks[i].complete ? 'checked' : ''} />
           <div class="control-indicator"></div>
         </label>
       </div>

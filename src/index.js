@@ -38,6 +38,12 @@ document.addEventListener('click', (event) => {
     } else {
       checkbox.checked = true;
     }
+
+    let task =  taskById(checkbox.getAttribute('data-check-id'));
+    task.complete = checkbox.checked;
+    list.update(task);
+    console.log(task);
+    updateList();
   }
 
   if (focused && !focused.contains(event.target)) {
@@ -51,9 +57,7 @@ document.addEventListener('click', (event) => {
 
   if (taskButtonStatus === 'delete' && event.target === taskButton.firstChild) {
     list.delete(taskId);
-    tasks = list.tasks;
-    listElement.innerHTML = '';
-    insertTasksIntoDom(tasks);
+    updateList();
     focused = '';
     return;
   }
@@ -64,4 +68,23 @@ document.addEventListener('click', (event) => {
       focused = focusOnTask;
     }
   }
+});
+
+const updateList = () => {
+    tasks = list.tasks;
+    listElement.innerHTML = '';
+    insertTasksIntoDom(tasks);
+}
+
+const taskById = (id) => {
+  return tasks.filter((t) => t.id === id)[0];
+}
+
+document.addEventListener('input', (e) => {
+  const input = e.target;
+  const id = input.getAttribute('data-input-id');
+  const task = taskById(id);
+  console.log(task);
+  task.description = input.value;
+  list.update(task);
 });
