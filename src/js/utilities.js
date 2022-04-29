@@ -22,23 +22,22 @@ const insertTasksIntoDom = (tasks) => {
   for (let i = 0; i < tasks.length; i += 1) {
     appendChild(
       `
-    <li id="${tasks[i].id}" class="task p-1 text-gray border-b-1 flex justify-between items-center" tabindex="0">
+    <li id="${tasks[i].id}" class="task p-1 text-gray border-b-1 flex justify-between items-center" 
+    data-index="${tasks[i].index}" tabindex="0" draggable="true">
       <div class="w-full">
         <label class="control control-checkbox" for="task-${i}">
           <div class="w-full">
             <del>
-            <input type="text" data-input-id="${tasks[i].id}" class="task-text ${
-  tasks[i].complete ? 'del' : ''
-}" value="${tasks[i].description}" disabled />
+            <input type="text" data-input-id="${tasks[i].id}" 
+            class="task-text ${tasks[i].complete ? 'del' : ''}" value="${tasks[i].description}" disabled />
       </del>
           </div>
           <input type="checkbox" data-check-id="${tasks[i].id}" ${tasks[i].complete ? 'checked' : ''} />
           <div class="control-indicator"></div>
         </label>
       </div>
-      <a href="#" data-btn-id="${
-  tasks[i].id
-}" class="flex items-center" data-status="edit"><span class="icon icon-dots" /></a>
+      <button data-btn-id="${tasks[i].id}" 
+      class="flex items-center border-0 bg-inherit" data-status="edit"><span class="icon icon-dots" /></button>
     </li>`,
       '#list',
     );
@@ -52,7 +51,11 @@ const getTaskFromDom = (id) => {
   const btn = document.querySelector(`[data-btn-id="${id}"]`);
   const icon = btn.firstChild;
   return {
-    task, checkbox, text, btn, icon,
+    task,
+    checkbox,
+    text,
+    btn,
+    icon,
   };
 };
 

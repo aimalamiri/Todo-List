@@ -28,6 +28,23 @@ export default class List {
     }
   }
 
+  sortByDomIndex(list) {
+    const indexArray = [];
+    Object.values(list).forEach((task) => {
+      indexArray.push(task.getAttribute('data-index'));
+    });
+
+    const tasks = [];
+    for (let i = 0; i < indexArray.length; i += 1) {
+      const b = this.tasks.filter((task) => Number(indexArray[i]) === task.index)[0];
+      tasks.push(b);
+    }
+
+    this.tasks = tasks;
+    this.#sort();
+    store(this.tasks, 'tasks');
+  }
+
   #sort() {
     const sorted = [];
 
