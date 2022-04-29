@@ -1,4 +1,3 @@
-/* eslint-disable class-methods-use-this */
 import { store, getFromStorage } from './utilities.js';
 
 export default class List {

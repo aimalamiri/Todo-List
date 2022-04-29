@@ -20,6 +20,7 @@ const updateIndex = () => {
 addTaskForm.addEventListener('submit', (event) => {
   event.preventDefault();
   const taskInput = document.querySelector('#task-input');
+  if (!taskInput.value.trim()) return;
   const task = new Task(taskInput.value, tasks.length, false);
   list.add(task);
   listElement.innerHTML = '';
