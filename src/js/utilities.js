@@ -36,8 +36,8 @@ const insertTasksIntoDom = (tasks) => {
           <div class="control-indicator"></div>
         </label>
       </div>
-      <a href="#" data-btn-id="${tasks[i].id}" 
-      class="flex items-center" data-status="edit"><span class="icon icon-dots" /></a>
+      <button data-btn-id="${tasks[i].id}" 
+      class="flex items-center border-0 bg-inherit" data-status="edit"><span class="icon icon-dots" /></button>
     </li>`,
       '#list',
     );
