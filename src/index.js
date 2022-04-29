@@ -1,9 +1,8 @@
 import './scss/index.scss';
 import Task from './js/Task.js';
 import List from './js/List.js';
-import {
-  insertTasksIntoDom, taskBlur, taskFocus,
-} from './js/utilities.js';
+import { insertTasksIntoDom, taskBlur, taskFocus } from './js/utilities.js';
+import dragDropSorting from './js/sorting.js';
 
 const listElement = document.querySelector('#list');
 const addTaskForm = document.querySelector('#add-task');
@@ -11,6 +10,12 @@ const btnDeleteDoneTasks = document.querySelector('#btn-delete-done-tasks');
 
 const list = new List();
 let { tasks } = list;
+
+const updateIndex = () => {
+  listElement.childNodes.forEach((task) => {
+    dragDropSorting(task, list);
+  });
+};
 
 addTaskForm.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -20,10 +25,12 @@ addTaskForm.addEventListener('submit', (event) => {
   listElement.innerHTML = '';
   insertTasksIntoDom(tasks);
   addTaskForm.reset();
+  updateIndex();
 });
 
 window.onload = () => {
   insertTasksIntoDom(tasks);
+  updateIndex();
 };
 
 const updateList = () => {
@@ -71,6 +78,7 @@ document.addEventListener('click', (event) => {
       focused = focusOnTask;
     }
   }
+  updateIndex();
 });
 
 document.addEventListener('input', (e) => {
