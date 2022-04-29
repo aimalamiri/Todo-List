@@ -4,6 +4,9 @@
 
 This is a simple ToDo tasks application built with javascript, and designed with css.
 
+![project gif](./todo.gif)
+
+
 ## Technologeis and plugins
 
 - HTML 5
