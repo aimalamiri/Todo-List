@@ -1,4 +1,5 @@
 {
+  "homepage": "https://github.com/aimalamiri/Webpack-boilerplate#readme",
   "name": "Todo list",
   "version": "1.0.0",
   "description": "todo list app",
@@ -24,7 +25,6 @@
   "bugs": {
     "url": "https://github.com/aimalamiri/Webpack-boilerplate/issues"
   },
-  "homepage": "https://github.com/aimalamiri/Webpack-boilerplate#readme",
   "devDependencies": {
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
@@ -36,6 +36,7 @@
     "webpack-dev-server": "^4.8.1"
   },
   "dependencies": {
+    "gh-pages": "^3.2.3",
     "path": "^0.12.7",
     "stream": "^0.0.2"
   }
