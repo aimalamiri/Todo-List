@@ -4,6 +4,9 @@
 
 This is a simple ToDo tasks application built with javascript, and designed with css.
 
+## Live demoe
+Here is the [live demo](https://aimalamiri.github.io/Todo-List/) link.
+
 ![project gif](./todo.gif)
 
 
