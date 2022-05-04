@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import List from '../js/List.js';
 import Task from '../js/Task.js';
 

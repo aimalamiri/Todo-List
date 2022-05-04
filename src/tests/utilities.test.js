@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { store, insertTasksIntoDom } from '../js/utilities';
 
 test('should save to localStorage', () => {

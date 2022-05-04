@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { insertTasksIntoDom } from '../js/utilities';
 import List from '../js/List.js';
 import Task from '../js/Task.js';
@@ -30,13 +32,3 @@ describe('Tests for the DOM of tasks', () => {
     expect(list_elements).toHaveLength(1);
   });
 });
-// if (taskButtonStatus === 'delete' && event.target === taskButton.firstChild) {
-//   list.delete(taskId);
-//   updateList();
-//   focused = '';
-//   return;
-// }
-
-// test('Delete a task from the List', () => {
-//   let task = new Task('');
-// });

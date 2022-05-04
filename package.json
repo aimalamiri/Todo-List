@@ -39,6 +39,7 @@
     "gh-pages": "^3.2.3",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^28.0.3",
+    "jest-environment-jsdom": "^28.0.2",
     "jest-localstorage-mock": "^2.4.21",
     "sass": "^1.51.0",
     "sass-loader": "^12.6.0",
@@ -48,7 +49,6 @@
     "webpack-dev-server": "^4.8.1"
   },
   "dependencies": {
-    "jest-environment-jsdom": "^28.0.2",
     "path": "^0.12.7",
     "stream": "^0.0.2"
   }
