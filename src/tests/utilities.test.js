@@ -1,4 +1,4 @@
-import { store } from '../js/utilities';
+import { store, insertTasksIntoDom } from '../js/utilities';
 
 test('should save to localStorage', () => {
   const KEY = 'foo',
@@ -11,3 +11,5 @@ test('should save to localStorage', () => {
   expect(localStorage.__STORE__[KEY]).toBe(JSON.stringify(VALUE));
   expect(Object.keys(localStorage.__STORE__).length).toBe(1);
 });
+
+

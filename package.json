@@ -11,7 +11,7 @@
   "description": "todo list app",
   "private": true,
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest --coverage --env=jsdom",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "dev": "webpack --mode development",
@@ -48,6 +48,7 @@
     "webpack-dev-server": "^4.8.1"
   },
   "dependencies": {
+    "jest-environment-jsdom": "^28.0.2",
     "path": "^0.12.7",
     "stream": "^0.0.2"
   }
