@@ -1,6 +1,12 @@
 {
   "homepage": "https://github.com/aimalamiri/Webpack-boilerplate/",
   "name": "Todo list",
+  "jest": {
+    "resetMocks": false,
+    "setupFiles": [
+      "jest-localstorage-mock"
+    ]
+  },
   "version": "1.0.0",
   "description": "todo list app",
   "private": true,
