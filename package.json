@@ -5,7 +5,7 @@
   "description": "todo list app",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --coverage",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "dev": "webpack --mode development",
@@ -28,9 +28,12 @@
     "url": "https://github.com/aimalamiri/Webpack-boilerplate/issues"
   },
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.17.9",
     "css-loader": "^6.7.1",
     "gh-pages": "^3.2.3",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^28.0.3",
+    "jest-localstorage-mock": "^2.4.21",
     "sass": "^1.51.0",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",
