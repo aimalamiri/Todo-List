@@ -35,4 +35,12 @@ describe('Test all of the List class functionalities', () => {
     expect(list.tasks[0].description).toBe(task.description);
     expect(localStorage.__STORE__['tasks']).toBe(JSON.stringify(list.tasks));
   });
+
+  test('Should edit the task status', () => {
+    list.add(task);
+    task.complete = true;
+    list.update(task);
+    expect(list.tasks[0].complete).toBe(true);
+    expect(localStorage.__STORE__['tasks']).toBe(JSON.stringify(list.tasks));
+  });
 });
