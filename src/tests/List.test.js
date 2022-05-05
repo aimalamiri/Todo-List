@@ -3,25 +3,36 @@
 import List from '../js/List.js';
 import Task from '../js/Task.js';
 
-beforeEach(() => {
-  localStorage.clear();
-  jest.clearAllMocks();
-  localStorage.setItem.mockClear();
-});
+describe('Test all of the List class functionalities', () => {
+  let task;
+  let list;
 
-test('Should add to localStorage', () => {
-  const task = new Task('Task', 1);
-  const list = new List();
-  list.add(task);
-  expect(list.tasks.length).toBe(1);
-  expect(localStorage.__STORE__['tasks']).toBe(JSON.stringify(list.tasks));
-});
+  beforeEach(() => {
+    localStorage.clear();
+    jest.clearAllMocks();
+    localStorage.setItem.mockClear();
+    task = new Task('Task', 1);
+    list = new List();
+  });
 
-test('Should delete in localStorage', () => {
-  const task = new Task('Task', 1);
-  const list = new List();
-  list.add(task);
-  list.delete(task.id);
-  expect(list.tasks.length).toBe(0);
-  expect(localStorage.__STORE__['tasks']).toBe(JSON.stringify(list.tasks));
+  test('Should add to localStorage', () => {
+    list.add(task);
+    expect(list.tasks.length).toBe(1);
+    expect(localStorage.__STORE__['tasks']).toBe(JSON.stringify(list.tasks));
+  });
+
+  test('Should delete in localStorage', () => {
+    list.add(task);
+    list.delete(task.id);
+    expect(list.tasks.length).toBe(0);
+    expect(localStorage.__STORE__['tasks']).toBe(JSON.stringify(list.tasks));
+  });
+
+  test('Should edit the task description', () => {
+    list.add(task);
+    task.description = 'Updated description';
+    list.update(task);
+    expect(list.tasks[0].description).toBe(task.description);
+    expect(localStorage.__STORE__['tasks']).toBe(JSON.stringify(list.tasks));
+  });
 });
