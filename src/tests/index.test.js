@@ -14,7 +14,8 @@ describe('Tests for the DOM of tasks', () => {
 
   test('Add one new item to the list', () => {
     list.add(task);
-    document.body.innerHTML = '<div>' + '  <ul id="list"></li>' + '</div>';
+    document.body.innerHTML =
+      '<div>' + '  <ul id="list"></li>' + '</div>';
     insertTasksIntoDom(list.tasks);
 
     const list_elements = document.querySelectorAll('#list li');
@@ -30,5 +31,24 @@ describe('Tests for the DOM of tasks', () => {
     insertTasksIntoDom(tasks);
     const list_elements = document.querySelectorAll('#list li');
     expect(list_elements).toHaveLength(1);
+  });
+
+  test('Should remove all completed tasks', () => {
+    for (let i = 0; i < 10; i += 1) {
+      list.add(new Task(`Task ${i}`, i, i % 2 == 0 ? true : false));
+    }
+
+    document.body.innerHTML =
+      '<div>' + '  <ul id="list"></li>' + '</div>';
+    insertTasksIntoDom(list.tasks);
+    list.tasks.forEach((task) => {
+      if (task.complete) {
+        list.delete(task.id);
+      }
+    });
+    document.querySelector('#list').innerHTML = '';
+    insertTasksIntoDom(list.tasks);
+    const domList = document.querySelectorAll('#list li');
+    expect(domList.length).toBe(6);
   });
 });
